@@ -10,7 +10,7 @@ pipeline {
         stage('Build') {
             steps{ 
                  sh 'printenv'
-                 sh 'docker build -t ecr-techchallengeapp .'
+                 
             }
         }
         
