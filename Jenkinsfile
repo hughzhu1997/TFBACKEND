@@ -14,17 +14,12 @@ pipeline {
             }
         }
         
-        stage("Using env vars") {
-            environment {
-                USER_PATH = "/home/hugh"
-            }
+        stage("test env vars") {
             steps {
-                echo "BUILD_NUMBER = ${env.BUILD_NUMBER}"
-                sh 'echo BUILD_NUMBER = $BUILD_NUMBER'
-                
-                echo "Current user is ${env.USER_Name}"
-                echo "Current user id is ${env.USER_ID} (type: ${env.USER_ID.class})"
-                echo "Current user paht ${env.USER_PATH}"
+                withEnv(["ACCESS_KEY_ID=$(env.AWS_ACCESS_KEY_ID)"]) {
+                echo "ACCESS_KEY_ID is $(env.AWS_ACCESS_KEY_ID)"
+                }
+              
            }
         }
         
