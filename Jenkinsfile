@@ -5,11 +5,10 @@ pipeline{
   
       stage("Build"){
           steps{ 
-               {
-            sh '''
-               printenv  
-               docker build -t ecr-techchallengeapp
-               '''
+               
+            sh 'printenv'
+            sh 'docker build -t ecr-techchallengeapp .'
+              
     
                  }
             }
@@ -43,4 +42,3 @@ pipeline{
           }
         }    
     }
-}
