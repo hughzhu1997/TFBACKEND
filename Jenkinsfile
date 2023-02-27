@@ -1,10 +1,6 @@
 pipeline{
   agent any
-  
-  environment {
-      AWS_DEFAULT_REGION="ap-southeast-2"
-         }
-        
+         
    stages{
   
       stage("Build"){
